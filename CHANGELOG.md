@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.3] - 2026-11-10
+
+Fork release of 2.1.2, published as `@devriturajkumar/opencode-antigravity-auth`
+while both fixes await upstream review. The plugin id is unchanged, so accounts,
+credentials, and settings carry over from the upstream package.
+
+### Fixed
+
+- **#604** - Omit undefined `quota` properties (and its nested `resetTime` /
+  `updatedAt` fields) from the account list RPC output so it strictly conforms
+  to JSON values, fixing the 500 error when listing accounts in `/antigravity`.
+- **#610** - Forward inference requests from a disposed plugin instance to the
+  active replacement after a plugin reload, gated on the replacement's setup
+  with a bounded wait and caller abort support, so open sessions no longer fail
+  with "Antigravity plugin has been disposed".
+
 ## [2.1.2] - 2026-10-27
 
 ### Added
